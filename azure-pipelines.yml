@@ -20,9 +20,14 @@ steps:
 
 - script: mvn dependency:purge-local-repository
   displayName: "Purge local Maven repository"
+ 
+- script: rm -rf ~/.m2/repository
+  displayName: "Delete Maven Cache (Linux/Mac)"  
 
 - script: mvn clean install -U
   displayName: "Force update dependencies"
+
+
 
 - task: Maven@3
   inputs:
