@@ -11,12 +11,6 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: Cache@2
-  inputs:
-    key: 'maven | "$(Agent.OS)" | pom.xml'
-    path: $(MAVEN_CACHE_FOLDER)
-    cacheHitVar: CACHE_RESTORED
-  continueOnError: true
 
 - script: mvn dependency:purge-local-repository
   displayName: "Purge local Maven repository"
